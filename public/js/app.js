@@ -13694,7 +13694,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       attrs: {
         "width": "350"
       }
-    }, [_vm._v(_vm._s(bufferPost.post_text))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(bufferPost.created_at))])])
+    }, [_c('div', {
+      staticClass: "media"
+    }, [_c('div', {
+      staticClass: "media-left"
+    }, [_vm._v("\n                                            " + _vm._s(bufferPost.post_text) + "\n                                            ")])])]), _vm._v(" "), _c('td', [_vm._v(_vm._s(bufferPost.created_at))])])
   }), 0)])])])])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('thead', [_c('tr', [_c('th', [_vm._v("Group Name")]), _vm._v(" "), _c('th', [_vm._v("Group Type")]), _vm._v(" "), _c('th', [_vm._v("Account Name")]), _vm._v(" "), _c('th', [_vm._v("Post Text")]), _vm._v(" "), _c('th', [_vm._v("Time")])])])
@@ -26208,6 +26212,12 @@ var e=Object.freeze({});function t(e){return null==e}function n(e){return null!=
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+//
+//
+//
+//
+//
+//
 //
 //
 //

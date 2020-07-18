@@ -18,7 +18,13 @@
                                     <td>{{ bufferPost.group_info && bufferPost.group_info.name }}</td>
                                     <td>{{ bufferPost.group_info && bufferPost.group_info.type }}</td>
                                     <td>{{ bufferPost.account_info && bufferPost.account_info.name }}</td>
-                                    <td width="350">{{ bufferPost.post_text }}</td>
+                                    <td width="350">
+                                        <div class="media">
+								            <div class="media-left">
+                                            {{ bufferPost.post_text }}
+                                            </div>
+                                        </div>
+                                    </td>
                                     <td>{{ bufferPost.created_at }}</td>
                                 </tr>
                         </tbody>
