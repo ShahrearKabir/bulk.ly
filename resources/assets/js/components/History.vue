@@ -32,7 +32,7 @@
                 </div> -->
 
                 <div class="col-md-12">
-                    <DataTable :value="bufferPosts" :paginator="true" :rows="10"
+                    <DataTable :value="bufferPosts.data" :paginator="false" :rows="10"
                         paginatorTemplate="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
                         :rowsPerPageOptions="[10,20,50]"
                         currentPageReportTemplate="Showing {first} to {last} of {totalRecords}">
@@ -45,12 +45,16 @@
                         </Column>
                         <Column field="post_text" header="Post Text"></Column>
                         <Column field="created_at" header="Time"></Column>
-                        <template #paginatorLeft>
+
+                        <button class="btn btn-info" v-if="bufferPosts.prev_page_url" @click="nextPage(bufferPosts.prev_page_url)"> Prev </button>
+                        Page {{bufferPosts.current_page}} of {{ bufferPosts.last_page}}
+                        <button class="btn btn-info" @click="nextPage(bufferPosts.next_page_url)"> Next </button>
+                        <!-- <template #paginatorLeft>
                             <Button type="button" icon="pi pi-refresh" class="p-button-text" />
                         </template>
                         <template #paginatorRight>
                             <Button type="button" icon="pi pi-cloud" class="p-button-text" />
-                        </template>
+                        </template> -->
                     </DataTable>
                 </div>
             </div>
@@ -80,10 +84,19 @@
                 axios.get('/buffer-list')
                     .then((res) => {
                         console.log("res.............", res.data);
-                        this.bufferPosts = res.data.data;
+                        this.bufferPosts = res.data;
                     })
 			        .catch((err) => console.error(err));;
             },
+
+            nextPage(link){
+                axios.get(link)
+                    .then((res) => {
+                        console.log("res.............", res.data);
+                        this.bufferPosts = res.data;
+                    })
+			        .catch((err) => console.error(err));;
+            }
  
             // createTask() {
             //     axios.post('api/tasks', this.task)

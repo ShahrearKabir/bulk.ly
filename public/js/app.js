@@ -12872,6 +12872,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 
 // import DataTable from 'primevue/datatable';
@@ -12895,11 +12899,38 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/buffer-list').then(function (res) {
                 console.log("res.............", res.data);
-                _this.bufferPosts = res.data.data;
+                _this.bufferPosts = res.data;
+            }).catch(function (err) {
+                return console.error(err);
+            });;
+        },
+        nextPage: function nextPage(link) {
+            var _this2 = this;
+
+            __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get(link).then(function (res) {
+                console.log("res.............", res.data);
+                _this2.bufferPosts = res.data;
             }).catch(function (err) {
                 return console.error(err);
             });;
         }
+
+        // createTask() {
+        //     axios.post('api/tasks', this.task)
+        //         .then((res) => {
+        //             this.task.body = '';
+        //         })
+        //         .catch((err) => console.error(err));
+        // },
+
+        // deleteTask(id) {
+        //     axios.delete('api/tasks/' + id)
+        //         .then((res) => {
+        //             this.fetchTaskList()
+        //         })
+        //         .catch((err) => console.error(err));
+        // },
+
     }
 });
 
@@ -15792,38 +15823,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "col-md-12"
   }, [_c('DataTable', {
     attrs: {
-      "value": _vm.bufferPosts,
-      "paginator": true,
+      "value": _vm.bufferPosts.data,
+      "paginator": false,
       "rows": 10,
       "paginatorTemplate": "CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown",
       "rowsPerPageOptions": [10, 20, 50],
       "currentPageReportTemplate": "Showing {first} to {last} of {totalRecords}"
-    },
-    scopedSlots: _vm._u([{
-      key: "paginatorLeft",
-      fn: function() {
-        return [_c('Button', {
-          staticClass: "p-button-text",
-          attrs: {
-            "type": "button",
-            "icon": "pi pi-refresh"
-          }
-        })]
-      },
-      proxy: true
-    }, {
-      key: "paginatorRight",
-      fn: function() {
-        return [_c('Button', {
-          staticClass: "p-button-text",
-          attrs: {
-            "type": "button",
-            "icon": "pi pi-cloud"
-          }
-        })]
-      },
-      proxy: true
-    }])
+    }
   }, [_c('Column', {
     attrs: {
       "field": "group_info.name",
@@ -15859,7 +15865,21 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "field": "created_at",
       "header": "Time"
     }
-  })], 1)], 1)])])])
+  }), _vm._v(" "), (_vm.bufferPosts.prev_page_url) ? _c('button', {
+    staticClass: "btn btn-info",
+    on: {
+      "click": function($event) {
+        return _vm.nextPage(_vm.bufferPosts.prev_page_url)
+      }
+    }
+  }, [_vm._v(" Prev ")]) : _vm._e(), _vm._v("\n                        Page " + _vm._s(_vm.bufferPosts.current_page) + " of " + _vm._s(_vm.bufferPosts.last_page) + "\n                        "), _c('button', {
+    staticClass: "btn btn-info",
+    on: {
+      "click": function($event) {
+        return _vm.nextPage(_vm.bufferPosts.next_page_url)
+      }
+    }
+  }, [_vm._v(" Next ")])], 1)], 1)])])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
