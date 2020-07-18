@@ -94,7 +94,7 @@ class HistoryController extends Controller
     }
 
     public function showList(){
-        $bufferPosts = BufferPosting::get();
+        $bufferPosts = BufferPosting::where('user_id', Auth::id())->paginate(50);
         // dd($bufferPosts);accountInfo
         foreach ($bufferPosts as $bufferPost) {
             $bufferPosts->groupInfo = $bufferPost->groupInfo;

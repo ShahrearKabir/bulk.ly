@@ -100,6 +100,11 @@ Route::get('/start/', 'PagesController@start')->name('start');
 
 Route::get('/history', 'HistoryController@index')->name('history');
 
+Route::get('/buffer-list', 'HistoryController@showList');
+
+
+// Route::get('/buffer-list', 'HistoryController@showList');
+
 
 Route::post('/settings/timezone/', 'PagesController@history')->name('saveTimezone');
 

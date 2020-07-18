@@ -15,8 +15,16 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+import Vue from 'vue';
 import History from './components/History.vue';
 import axios from 'axios';
+import DataTable from 'primevue/datatable';
+import Column from 'primevue/column';
+import ColumnGroup from 'primevue/columngroup'; 
+
+Vue.component('DataTable', DataTable);
+Vue.component('Column', Column);
+Vue.component('ColumnGroup', ColumnGroup);
 
 const app = new Vue({
     el: '#app_root',

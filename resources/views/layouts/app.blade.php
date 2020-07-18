@@ -14,6 +14,10 @@
     <link rel=”stylesheet” href=” https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
     <script src=”https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 
+    <link href="https://unpkg.com/primevue/resources/themes/saga-blue/theme.css " rel="stylesheet">
+    <link href="https://unpkg.com/primevue/resources/primevue.min.css " rel="stylesheet">
+    <link href="https://unpkg.com/primeicons/primeicons.css " rel="stylesheet">
+
 
     
     <script type="text/javascript">

@@ -18,5 +18,10 @@
     "lodash": "^4.17.4",
     "vue": "^2.1.10",
     "font-awesome": "4.7.0"
+  },
+  "dependencies": {
+    "primeflex": "^2.0.0-rc.1",
+    "primeicons": "^4.0.0",
+    "primevue": "^2.0.3"
   }
 }
